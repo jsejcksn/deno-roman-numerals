@@ -1,8 +1,21 @@
 # roman-numerals
 
+# Use
+
+```ts
+import { toArabic, toRoman } from "https://deno.land/x/roman_numerals/mod.ts";
+
+console.log(toArabic("XLII")); // 42
+console.log(toArabic("xlii")); // 42
+console.log(toRoman(42)); // "XLII"
+console.log(toRoman("42")); // "XLII"
+```
+
 > This module has been converted to ESM-formatted TypeScript, but its API is otherwise unchanged (with the notable exception that non-primitives are no longer accepted as arguments).
 >
 > **To-do**: Update this readme
+
+> Readme contents from original NPM module:
 
 ## Installation ##
 Using npm:
