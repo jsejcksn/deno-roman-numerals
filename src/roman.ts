@@ -26,16 +26,16 @@ export function toRoman (arabic: number | string): string {
   let number: number;
   if (typeof arabic === 'string') {
     number = parseInt(arabic, 10);
-    if (isNaN(number)) throw new TypeError('toArabic expects a number');
+    if (isNaN(number)) throw new TypeError('toRoman expects a number');
   }
   else if (typeof arabic !== 'number' || isNaN(arabic)) {
-    throw new TypeError('toArabic expects a number');
+    throw new TypeError('toRoman expects a number');
   }
   else number = arabic;
 
   // Handling out-of-range numbers: negative numbers, numbers over 3999,...
-  if (number < 0) throw new RangeError('toArabic cannot express negative numbers');
-  if (number > 3999) throw new RangeError('toArabic cannot express numbers greater than 3999');
+  if (number < 0) throw new RangeError('toRoman cannot express negative numbers');
+  if (number > 3999) throw new RangeError('toRoman cannot express numbers greater than 3999');
 
   // Zero is/was a special case. I'll go with Dionysius Exiguus on this one as
   // seen on http://en.wikipedia.org/wiki/Roman_numerals#Zero
