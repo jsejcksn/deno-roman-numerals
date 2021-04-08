@@ -1,5 +1,5 @@
-import {assertStrictEquals, assertThrows} from './test_deps.ts';
-import {toArabic, toRoman} from './mod.ts';
+import {assertStrictEquals} from './test_deps.ts';
+import {toArabic, toRoman} from '../mod.ts';
 
 const tests: Deno.TestDefinition[] = [
   {
