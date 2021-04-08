@@ -16,12 +16,12 @@ function toRoman1(arabic) {
     let number;
     if (typeof arabic === 'string') {
         number = parseInt(arabic, 10);
-        if (isNaN(number)) throw new TypeError('toArabic expects a number');
+        if (isNaN(number)) throw new TypeError('toRoman expects a number');
     } else if (typeof arabic !== 'number' || isNaN(arabic)) {
-        throw new TypeError('toArabic expects a number');
+        throw new TypeError('toRoman expects a number');
     } else number = arabic;
-    if (number < 0) throw new RangeError('toArabic cannot express negative numbers');
-    if (number > 3999) throw new RangeError('toArabic cannot express numbers greater than 3999');
+    if (number < 0) throw new RangeError('toRoman cannot express negative numbers');
+    if (number > 3999) throw new RangeError('toRoman cannot express numbers greater than 3999');
     if (number === 0) return 'nulla';
     let roman = '';
     roman += upToTen(Math.floor(number / 1000), 'M', '', '');
