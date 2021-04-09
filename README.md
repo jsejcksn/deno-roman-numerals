@@ -43,7 +43,7 @@ Converts an arabic number (0 to 3999 inclusive) to its roman equivalent.
 The function will attempt to parse string integers. It will throw a TypeError on non-number inputs or `NaN`.
 
 
-### Tests
+## Tests
 
 ```
 deno test
