@@ -1,21 +1,21 @@
-import {assertStrictEquals} from './test_deps.ts';
-import {toArabic, toRoman} from '../mod.ts';
+import { assertStrictEquals } from "./test_deps.ts";
+import { toArabic, toRoman } from "../mod.ts";
 
 const tests: Deno.TestDefinition[] = [
   {
-    name: 'toArabic is a function',
+    name: "toArabic is a function",
     fn: () => {
-      assertStrictEquals(typeof toArabic, 'function');
+      assertStrictEquals(typeof toArabic, "function");
     },
   },
   {
-    name: 'toRoman is a function',
+    name: "toRoman is a function",
     fn: () => {
-      assertStrictEquals(typeof toRoman, 'function');
+      assertStrictEquals(typeof toRoman, "function");
     },
   },
   {
-    name: 'Bidirectional equality of return values',
+    name: "Bidirectional equality of return values",
     fn: () => {
       for (let i = 0; i < 4000; i += 1) {
         assertStrictEquals(toArabic(toRoman(i)), i);
