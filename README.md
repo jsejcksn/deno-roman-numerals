@@ -1,6 +1,7 @@
 # roman-numerals
 
-# Use
+
+## Use
 
 ```ts
 import { toArabic, toRoman } from "https://deno.land/x/roman_numerals/mod.ts";
@@ -11,57 +12,39 @@ console.log(toRoman(42)); // "XLII"
 console.log(toRoman("42")); // "XLII"
 ```
 
-> This module has been converted to ESM-formatted TypeScript, but its API is otherwise unchanged (with the notable exception that non-primitives are no longer accepted as arguments).
->
-> **To-do**: Update this readme
 
-> Readme contents from original NPM module:
+## Notes
 
-## Installation ##
-Using npm:
+> This module started as a port of the npm package [roman-numerals](https://github.com/joshleaves/roman-numerals) (see [ACKNOWLEDGEMENTS.md](./ACKNOWLEDGEMENTS.md)). The API is the same (with the notable exception that non-primitives are not accepted as arguments).
 
-    $ npm install roman-numerals
-    
-Using git:
+The provided functions convert between [roman numerals](https://en.wikipedia.org/wiki/Roman_numerals) and [arabic integers](https://en.wikipedia.org/wiki/Arabic_numerals). The conversions utilize the "standard form" of roman numerals, so only values from `0` to `3999` (inclusive) are valid. Any values outside this range will throw an error.
 
-    $ git clone git@github.com:joshleaves/roman-numerals.git
 
-## Usage ##
+## Exports
 
-### roman-numerals.toArabic(roman) ###
-toArabic() takes a roman number (as a string literal or a string object) and returns a number with the arabic equivalent.
+### `toArabic`
 
-    var toArabic = require('roman-numerals').toArabic;
-    [ 'XLII', new String('XLII') ].forEach(function (x, i) {
-        console.log('%d: %s', i, toArabic(x));
-    });
-Will output:
+```ts
+function toArabic(roman: string): number
+```
 
-    0: 42
-    1: 42
+Converts a valid roman number to its arabic equivalent.
 
-toArabic() will throw a TypeError when passed a non-string variable and will throw an Error when passed an invalid roman number. Acceptable strings are also `"nulla"` and `""` (that's empty string) which will both return 0.
+In addition to roman numerals in range, acceptable strings are also `"nulla"` and `""` (an empty string) which will both return 0.
 
-### roman-numerals.toRoman(arabic) ###
-toRoman() takes an arabic number (as a number literal, a number object, a stringed literal number or a stringed object number) and returns a string with the roman equivalent.
+### `toRoman`
 
-    var toRoman = require('roman-numerals').toRoman;
-    [ 42, new Number(42), '42', new String('42')].forEach(function (x, i) {
-        console.log('%d: %s', i, toRoman(x));
-    });
-Will output:
+```ts
+function toRoman(arabic: number | string): string
+```
 
-    0: XLII
-    1: XLII
-    2: XLII
-    3: XLII
+Converts an arabic number (0 to 3999 inclusive) to its roman equivalent.
 
-toRoman() will throw a TypeError when passed a non-number variable or NaN and will throw an Error when passed a number under 0 or over 3999.
+The function will attempt to parse string integers. It will throw a TypeError on non-number inputs or NaN.
 
-## Tests ##
-Unit tests are done using [mocha](https://github.com/visionmedia/mocha/). To run the tests on your machine, install mocha using npm and run `make test` or `npm test`.
 
-    $ npm install --dev
-    $ make test
+### Tests
 
-You can also use `make nyan` for something new.
+```
+deno test
+```
