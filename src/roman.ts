@@ -18,7 +18,7 @@ function upToTen(num: number, one: string, five: string, ten: string): string {
  * Converts an arabic number (0 to 3999 inclusive) to its roman equivalent.
  *
  * The function will attempt to parse string integers. It will throw a TypeError
- * on non-number inputs or NaN, and will thow a RangeError if the argument
+ * on non-number inputs or `NaN`, and will thow a RangeError if the argument
  * provided is less than 0 or greater than 3999.
  *
  * @param arabic - Integer
